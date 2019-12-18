@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  omada:
+    image: omada-controller 
+    container_name: omada-controller
+    build:
+      context: ./omada
+    volumes:
+      - /var/data/omada/data:/opt/tplink/EAPController/data
+      - /var/data/omada/work:/opt/tplink/EAPController/work
+      - /var/data/omada/logs:/opt/tplink/EAPController/logs
+    network_mode: host
