@@ -2,12 +2,19 @@ version: '2'
 
 services:
   omada:
-    image: omada-controller 
+    image: r4mmer/omada-controller
     container_name: omada-controller
     build:
-      context: ./omada
+      context: .
+    ports:
+      - "8088:8088"
+      - "8043:8043"
     volumes:
-      - /var/data/omada/data:/opt/tplink/EAPController/data
-      - /var/data/omada/work:/opt/tplink/EAPController/work
-      - /var/data/omada/logs:/opt/tplink/EAPController/logs
-    network_mode: host
+      - data:/opt/tplink/EAPController/data
+      - work:/opt/tplink/EAPController/work
+      - logs:/opt/tplink/EAPController/logs
+
+volumes:
+  data:
+  work:
+  logs:

@@ -32,7 +32,7 @@ RUN cd /tmp &&\
     groupadd -g 508 omada &&\
     useradd -u 508 -g 508 -d /opt/tplink/EAPController omada &&\
     usermod -aG sudo omada &&\
-    mkdir /opt/tplink/EAPController/logs /opt/tplink/EAPController/work &&\
+    mkdir -vp /opt/tplink/EAPController/logs /opt/tplink/EAPController/work &&\
     chown -R omada:omada /opt/tplink/EAPController/data /opt/tplink/EAPController/logs /opt/tplink/EAPController/work
 
 COPY entrypoint.sh /entrypoint.sh
